@@ -1,0 +1,83 @@
+#include <iostream>
+#include <limits>
+
+
+void operation()
+{
+    int n;
+    double g, h;
+    std::cout << "This the program converts an available units of measurement - to  Meters.";
+    std::cout << "\nAvailable Units of Measurement - (1 - Km; 2 - M; 3 - Dm; 4 - Cm; 5 - Mm)";
+    std::cout << "\nChoose the Unit of Measurement and enter her: ";
+    std::cin >> n;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (n > 5 || n <= 0)
+{
+    std::cout << "You entered the wrong number!";
+    return;
+}
+    std::cout << "Enter your Unit of Measurement: ";
+    std::cin >> g;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+
+if (g <= 0)
+{
+    std::cout << "You entered the wrong number. The number be positive and non-zero!";
+    return;
+}
+if (n == 1)
+{
+    h = g * 1000;
+    std::cout << "Your Unit of Measurement converted to Meters equal: " << h << " meter(s).";
+}
+if (n == 2)
+{
+    std::cout << "Your Unit of Measurement converted to Meters equal: " << g << " meter(s).";
+}
+if (n == 3)
+{
+    h = g * 0.1;
+    std::cout << "Your Unit of Measurement converted to Meters equal: " << h << " meter(s).";
+}
+if (n == 4)
+{
+    h = g * 0.01;
+    std::cout << "Your Unit of Measurement converted to Meters equal: " << h << " meter(s).";
+}
+if (n == 5)
+{
+    h = g * 0.001;
+    std::cout << "Your Unit of Measurement converted to Meters equal: " << h << " meter(s).";
+}
+}
+int main()
+{
+    bool meter;
+    do 
+    {
+        operation();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> meter;
+        std::cout << "\n";
+    }
+    while (meter);
+    return 0;
+}
+
+
+
+
+
