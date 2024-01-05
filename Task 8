@@ -1,0 +1,52 @@
+#include <iostream>
+#include <limits>
+
+void equal()
+{
+    int h, p1, p2, p3;
+    std::cout << "What is the number of identical digits in a three-digit number?";
+    std::cout << "\nEnter a three-digit number: ";
+    std::cin >> h;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (h >= 100 && h < 1000 || h <= -100 && h > -1000)
+{
+    p3 = h % 10 / 1;
+    p2 = h % 100 / 10;
+    p1 = h % 1000 / 100;
+}
+else
+{
+    std::cout << "You entered the wrong number!";
+    return;
+}
+if (p1 == p2 && p2 == p3)
+{
+    std::cout << "Number of identical digits in the number: 3";
+}
+else if (p1 == p2 || p1 == p3 || p2 == p3)
+{
+    std::cout << "Number of identical digits in the number: 2";
+}
+else
+{
+    std::cout << "In the number DON'T HAVE indentical digit!";
+}
+}
+int main()
+{ 
+    bool butilka;
+    do
+    {
+        equal();
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> butilka;
+    }
+    while (butilka);
+    return 0;
+}
