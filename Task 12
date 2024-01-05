@@ -1,0 +1,77 @@
+#include <iostream>
+#include <limits>
+
+
+void triangle()
+{
+    int a, b, c;
+    std::cout << "Will be a Triangle and which he is.";
+    std::cout << "\nEnter the Sides of Triangle: \n";
+    std::cin >> a;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cin >> b;
+        if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cin >> c;
+        if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (a <= 0 || b <= 0 || c <= 0)
+{
+    std::cout << "You entered the wrong number! The data must be positive and non-zero!";
+    return;
+}
+if (a + b <= c || b + c <= a || a + c <= b)
+{
+    std::cout << "The triangle with such sides - CANNOT EXIST!";
+    return;
+}
+else
+{
+    std::cout <<"The triangle with such sides can exist.";
+}
+if (a == b && b == c)
+{
+    std::cout << " " << "And the Triangle - is Equilateral.";
+}
+else if (a != b && b != c && c != a)
+{
+    std::cout << " " << "And the Triangle - is Versatile.";
+}
+else 
+{
+    std::cout << " " << "And the Triangle - is Isosceles.";
+}
+if ((a * a + b * b) == c  * c || (b * b + c * c) == a * a || (c * c + a * a) == b)
+{
+    std::cout << " " << "And the Triangle - is Rectangular.";
+}
+}
+int main()
+{
+    bool sides;
+    do 
+    {
+        triangle();
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> sides;
+    }
+    while (sides);
+    return 0;
+}
+
