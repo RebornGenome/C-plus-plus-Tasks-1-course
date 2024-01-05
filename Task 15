@@ -1,0 +1,50 @@
+#include <iostream>
+#include <limits>
+//#include <cmath>
+
+void inch()
+{
+    int d1, m, c;
+    double d, l;
+    std::cout << "Conversion from Inches to the Metric System.";
+    std::cout << "\nEnter number of Inches for conversion: ";
+    std::cin >> d1;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (d1 <= 0)
+{
+    std::cout << "You entered the wrong number. The number be positive and non-zero!";
+    return;
+}
+if (d1 > 0)
+{
+    d = d1 * 25.4;
+    m = d / 1000;
+    c = (d - 1000 * m) / 10;
+    l = d - 1000 * m - 10 * c;
+    std::cout << "Your " << d1 << " " << "Inches converted to the Metric System, equal: ";
+    std::cout << m << "m" << " " << c << "cm"<< " " << l << "mm";
+}
+}
+int main()
+{
+    bool convercion;
+    do 
+    {
+        inch();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> convercion;
+        std::cout << "\n";
+    }
+    while (convercion);
+    return 0;
+}
+
+
+
