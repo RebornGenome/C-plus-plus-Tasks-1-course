@@ -1,0 +1,54 @@
+#include <iostream>
+#include <limits>
+
+
+void years()
+{
+    int g;
+    std::cout << "Is this a Leap year !?";
+    std::cout << "\nEnter the year in range (1600,2100): ";
+    std::cin >> g;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (g < 1600 || g > 2100)
+{
+    std::cout << "You entered the wrong year. Read condition again !";
+    return;
+}
+if (g % 4 == 0 && g % 100 != 0)
+{
+    std::cout << g << " " << "- this year is LEAP year.";
+    return;
+}
+else if (g % 100 == 0 && g % 400 == 0)
+{
+    std::cout << g << " " << "- this year is a LEAP year.";
+    return;
+}
+else
+{
+    std::cout << g << " " << "- this year IS NOT a Leap year !";
+}
+}
+int main()
+{
+    bool leap;
+    do 
+    {
+        years();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> leap;
+        std::cout << "\n";
+    }
+    while (leap);
+    return 0;
+}
+
+
+    
