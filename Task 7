@@ -1,0 +1,50 @@
+#include <iostream>
+#include <limits>
+
+void sum()
+{
+    int n, p1, p2, p3, sum;
+    std::cout << "The sum of the digits in a three-digit number - Is even.";
+    std::cout << "\nEnter a three-digit number: ";
+    std::cin >> n;
+if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (n >= 100 && n < 1000 || n <= -100 && n > -1000)
+{
+    p3 = n % 10 / 1;
+    p2 = n % 100 / 10;
+    p1 = n % 1000 / 100;
+}
+else 
+{
+    std::cout << "You entered the wrong number!";
+    return;
+}
+std::cout << "\nNumber: ";
+std::cout << p1 << " " << p2 << " " << p3 << "\n";
+if ((p1 + p2 + p3) % 2 == 0)
+{
+    std::cout << "Yes!";
+}
+else
+{
+    std::cout << "No!";
+}
+}
+int main()
+{
+    bool grow;
+    do 
+    {
+        sum();
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> grow;
+    }
+    while (grow);
+    return 0;
+}
