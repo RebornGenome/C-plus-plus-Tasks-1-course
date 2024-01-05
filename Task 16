@@ -1,0 +1,99 @@
+#include <iostream>
+#include <limits>
+
+
+void watch()
+{
+    int h, m, s, a, b, c, s1, m1, h1, d;
+    std::cout << "Enter the initial number Hours, Minutes, Seconds respectively: \n";
+    std::cin >> h;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cin >> m;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cin >> s;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (h > 24 || m > 60 || s > 60 || h < 0 || m < 0 || s < 0)
+{
+    std::cout << "You entered the wrong number!";
+    return;
+}
+if (h == 0 && m == 0 && s == 0)
+{
+    std::cout << "You don't entered the data! Please try again ;)";
+    return;
+}
+std::cout << "Enter time, which should pass (Hours, Minutes, Seconds): \n";
+std::cin >> a;
+if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+std::cin >> b;
+if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+std::cin >> c;
+if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (a < 0 || b < 0 || c < 0 || b > 60 || c > 60)
+{
+    std::cout << "You entered the wrong number!";
+    return;
+}
+if (a == 0 && b == 0 && c == 0)
+{
+    std::cout << "You don't entered the data! Please try again ;)";
+    return;
+}
+s1 = (s + c) % 60;
+m1 = (m + (s + c) / 60 + b) % 60;
+h1 = (h + (m + b) / 60 + a) % 24;
+d = (h + (m + b) / 60 + a) / 24;
+std::cout << "After the Time, which passed, present Time is: " << d << " day(s) " << h1 << " hour(s) " << m1 << " minute(es) "  << s1 << " sekond(s) ";
+}
+int main()
+{
+    bool kek;
+    do 
+    {
+        watch();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> kek;
+        std::cout << "\n";
+    }
+    while (kek);
+    return 0;
+}
+
+
