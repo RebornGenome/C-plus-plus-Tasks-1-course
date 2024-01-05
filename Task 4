@@ -1,0 +1,79 @@
+#include <iostream>
+#include <limits>
+
+void max()
+{
+int a, b, c, d, min1, min2, max;
+std::cout << "Get the maximum from the minimum of two numbers. Enter the ferst two numbers: ";
+std::cin >> a;
+if (std::cin.fail())
+{
+    std::cout << "Erro !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+std::cin >> b;
+if (std::cin.fail())
+{
+    std::cout << "Erro !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+std::cout << "Enter the second two numbers: ";
+std::cin >> c;
+if (std::cin.fail())
+{
+    std::cout << "Erro !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+std::cin >> d;
+if (std::cin.fail())
+{
+    std::cout << "Erro !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (a > b)
+{
+    min1 = b;
+}
+else if (a < b)
+{
+    min1 = a;
+}
+if (c > d)
+{
+    min2 = d;
+}
+else if (c < d)
+{
+    min2 = c;
+}
+if (min1 > min2)
+{
+    max = min1;
+}
+else
+{
+    max = min2;
+}
+std::cout << "Maximum of two minimums:" << max;
+}
+int main()
+{
+    bool aim;
+    do
+    {
+        max();
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> aim;
+    }
+        while (aim);
+        return 0;
+}
+
