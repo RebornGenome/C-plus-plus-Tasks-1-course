@@ -1,0 +1,79 @@
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+
+void roots()
+{
+    int a, b, c;
+    double D, x1, x2;
+    std::cout << "Find the roots of the quadratic equation: f(x)=ax^2+bx+c=0";
+    std::cout << "\nEnter the coefficients - a, b and c respectively: \n";
+    std::cout << "a = "; 
+    std::cin >> a;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cout << "b = ";
+    std::cin >> b;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cout << "c = ";
+    std::cin >> c;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (a == 0)
+{
+    std::cout << "Coefficient (a) - must not be equal to zero!";
+    return;
+}
+D = pow(b, 2) - 4 * a * c;
+std::cout << "\nD = " << D;
+if (D > 0)
+{
+    std::cout << "\nThe quadratic equation has Two to real roots:";
+    x1 = (-b - sqrt(D)) / (2 * a);
+    x2 = (-b + sqrt(D)) / (2 * a);
+    std::cout << "\nx1 = " << x1;
+    std::cout << "\nx2 = " << x2;
+    std::cout << "\nf("<< x1 <<") = " << a << "*" << pow(x1, 2) << "+" << b << "*" << x1 << "+" << c;
+    std::cout << "\nf("<< x2 <<") = " << a << "*" << pow(x2, 2) << "+" << b << "*" << x2 << "+" << c;
+}
+else if (D == 0)
+{
+    std::cout << "\nThe quadratic equation has One to real root:";
+    x1 = (-b - sqrt(D)) / (2 * a);
+    std::cout << "\nx1 = " << x1;
+    std::cout << "\nf("<< x1 <<") = " << a << "*" << x1 << "+" << b << "*" << x1 << "+" << c;
+}
+else 
+{
+    std::cout << "\nThe quadratic equation has not to real roors!";
+}
+}
+int main()
+{
+    bool equation;
+    do 
+    {
+        roots();
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> equation;
+    }
+    while (equation);
+    return 0;
+}
