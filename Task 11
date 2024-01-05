@@ -1,0 +1,83 @@
+#include <iostream>
+#include <limits>
+
+
+void brick()
+{
+    int x, y, z, a, b;
+    std::cout << "Will the brick fit into the hole.";
+    std::cout << "\nEnter the height, length and width of the brick, respectively: \n";
+    std::cin >> x;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cin >> y;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cin >> z;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (x <= 0 || y <= 0 || z <= 0)
+{
+    std::cout << "You entered the wrong number! The data must be positive and non-zero!";
+    return;
+}
+    std::cout << "Enter the dimensions of the hole in the wall: \n";
+    std::cin >> a;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cin >> b;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (a <= 0 || b <= 0)
+{
+    std::cout << "You entered the wrong number! The data must be positive and non-zero!";
+    return;
+}
+if (x <= a && y <= b || y <= a && z <= b || x <= a && z <= b || x <= b && y <= a || y <= b && z <= a || x <= b && z <= a)
+{
+    std::cout << "The brick FIT into the hole!";
+}
+else
+{
+    std::cout << "The brick DON'T FIT into the hole.";
+}
+}
+int main()
+{
+    bool wall;
+    do 
+    {
+        brick();
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> wall;
+    }
+    while (wall);
+    return 0;
+}
+
+    
