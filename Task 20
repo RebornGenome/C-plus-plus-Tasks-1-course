@@ -1,0 +1,77 @@
+#include <iostream>
+#include <limits>
+#include <string>
+
+
+void calculator()
+{
+    char sign;
+    double x, y, z;
+    std::cout << "This the program is a Simple Calculator.";
+    std::cout << "\nEnter the First number: ";
+    std::cin >> x;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cout << "Enter the Operation Sign from available - (+ , - , * , /): ";
+    std::cin >> sign;
+    if (sign == '+' || sign == '-' || sign == '*' || sign == '/')
+{
+    std::cout << "Enter the Second number: ";
+    std::cin >> y;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (sign == '+')
+{
+    z = x + y;
+    std::cout << x << " + " << y << " = " << z;
+    return;
+}
+if (sign == '-')
+{
+    z = x - y;
+    std::cout << x << " - " << y << " = " << z;
+    return;
+}
+if (sign == '*')
+{
+    z = x * y;
+    std::cout << x << " * " << y << " = " << z;
+    return;
+}
+if (sign == '/')
+{
+    z = x / y;
+    std::cout << x << " / " << y << " = " << z;
+    return;
+}
+}
+else 
+{
+    std::cout << "You entered the wrong Sign of Operation!";
+    return;
+}
+}
+int main()
+{
+    bool device;
+    do 
+    {
+        calculator();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> device;
+        std::cout << "\n";
+    }
+    while (device);
+    return 0;
+}
