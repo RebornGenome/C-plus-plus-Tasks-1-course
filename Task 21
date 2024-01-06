@@ -1,0 +1,41 @@
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+
+void quantity()
+{
+    int i, n, k = 0;
+    std::cout << "This the program count how many Digits in the whole Number.";
+    std::cout << "\nEnter the Number: ";
+    std::cin >> i;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+n = i;
+n = abs(n);
+while (n > 0)
+{
+    k++;
+    n = n / 10;
+}
+std::cout << "The number of Digits in the Number: " << k;
+}
+int main()
+{
+    bool number;
+    do 
+    {
+        quantity();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> number;
+        std::cout << "\n";
+    }
+    while (number);
+    return 0;
+}
