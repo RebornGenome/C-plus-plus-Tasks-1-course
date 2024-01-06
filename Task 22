@@ -1,0 +1,73 @@
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+
+void capital()
+{
+    int k, s, m = 0;
+    double p;
+    std::cout << "This the program showing how many months needs for receive needly sum.";
+    std::cout << "\nEnter the Initial Capital: ";
+    std::cin >> k;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cout << "Enter the a Monthly Precent of profit in percents (the sign percent - don't write): ";
+    std::cin >> p;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (p <= 0 || p > 100)
+{
+    std::cout << "You entered rhe wrong numbr. The percent not be 0 or smaller 0 or biger 100!";
+    return;
+}
+    std::cout << "Enter the Needly Sum for receive: ";    
+    std::cin >> s;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (k <= 0 || s <= 0)
+{
+    std::cout << "You entered the wrong number. The number be positive and non-zero!";
+    return;
+}
+if (k >= s)
+{
+    std::cout << "You entered the wrong number. The Capital would be smaller then Needly Sum!";
+    return;
+}
+while (k <= s)
+{
+    k = k + k * (p / 100);
+    m++;
+}
+    std::cout << "Needly Sum for receive will be received through " << m << " month(s)."; 
+}
+int main()
+{
+    bool percent;
+    do 
+    {
+        capital();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> percent;
+        std::cout << "\n";
+    }
+    while (percent);
+    return 0;
+}
