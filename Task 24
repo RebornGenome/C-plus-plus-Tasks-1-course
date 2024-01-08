@@ -5,7 +5,7 @@
 void sequence()
 {
     int h;
-    double sum;
+    double sr, sum;
     std::cout << "This the program showing the arithmetic mean of three Sequences consisting of ten random numbers.\n";
     for (int i = 0; i < 3; i++)
     {
@@ -13,10 +13,15 @@ void sequence()
         for (int j = 0; j < 10; j++)
         {
             h = rand() % 10;
-            std::cout << h << "\n";
+            std::cout << h << " ";
             sum = sum + h;
         }
-        std::cout << "The arithmetic mean this Sequences equals: " << sum / 10;
+        std::cout << "\n";
+        std::cout << "Sum: " << sum;
+        std::cout << "\n";
+        sr = sum / 10;
+        std::cout << "The arithmetic mean this Sequences equals: " << sr;
+        std::cout << "\n";
     }
 }
 int main()
