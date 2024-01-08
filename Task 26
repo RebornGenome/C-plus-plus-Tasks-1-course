@@ -1,0 +1,37 @@
+#include <iostream>
+#include <limits>
+
+
+void numbers()
+{
+    int g1, g2, g3;
+    std::cout << "This the program showing all Three-Digits numbers, which two same numbers.";
+    std::cout << "\nThree-Digits numbers, which two same numbers: \n";
+    for (int i = 100; i <= 999; i++)
+    {
+        g3 = i % 10 / 1;
+        g2 = i % 100 / 10;
+        g1 = i % 1000 / 100;
+        if (g1 == g2 || g2 == g3 || g1 == g3)
+        {
+            if (g1 != g2 || g2 != g3 || g1 != g3)
+            {
+                std::cout << i << " ";
+            }
+        }
+    }
+}
+int main()
+{
+    bool same;
+    do 
+    {
+        numbers();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> same;
+        std::cout << "\n";
+    }
+    while (same);
+    return 0;
+}
