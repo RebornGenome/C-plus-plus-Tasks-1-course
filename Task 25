@@ -1,0 +1,64 @@
+#include <iostream>
+#include <limits>
+
+
+void number()
+{
+    int n, x, y, z, a, b, c;
+    std::cout << "This the programm showing the all Three-Digit number the sum of digits, which smaller specified Digit(n).";
+    std::cout << "\nEnter the number (n): ";
+    std::cin >> n;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (n == 0)
+{
+    std::cout << "You entered the wrong number!";
+    return;
+}
+std::cout << "Negative numbers: \n";
+for (int i = -999; i <= -100; i++)
+{
+    z = (i) % 10 / 1;
+    y = (i) % 100 / 10;
+    x = (i) % 1000 / 100;
+    if (x + y + z < n)
+    {
+        std::cout << i << " ";
+    }
+}
+if (n < 0)
+{
+    std::cout << "\nPositive numbers: NO Positive numbers!";
+    return;
+}
+std::cout << "\nPositive numbers: \n";
+for (int j = 100; j < 1000; j++)
+{
+    c = j % 10 / 1;
+    b = j % 100 / 10;
+    a = j % 1000 / 100;
+    if (a + b + c < n)
+    {
+        std::cout << j << " "; 
+    }
+}
+}
+int main()
+{
+    bool smaller;
+    do 
+    {
+        number();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> smaller;
+        std::cout << "\n";
+    }
+    while (smaller);
+    return 0;
+}
