@@ -4,19 +4,19 @@
 
 void sequence()
 {
-    int h, sum = 0;
-    double sr;
+    int h;
+    double sum;
     std::cout << "This the program showing the arithmetic mean of three Sequences consisting of ten random numbers.\n";
     for (int i = 0; i < 3; i++)
     {
+        sum = 0;
         for (int j = 0; j < 10; j++)
         {
             h = rand() % 10;
             std::cout << h << "\n";
             sum = sum + h;
         }
-        sr = sum / 10;
-        std::cout << "The arithmetic mean this Sequences equals: " << sum;
+        std::cout << "The arithmetic mean this Sequences equals: " << sum / 10;
     }
 }
 int main()
