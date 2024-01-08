@@ -1,0 +1,35 @@
+#include <iostream>
+#include <limits>
+
+
+void sequence()
+{
+    int p = 0, n, k = 0;
+    std::cout << "This the program count the nubmer of Sign Changes in the Sequence.";
+    std::cout << "\nEnter please the your Sequence(if you want end the your sequence, enter the zero): \n";
+    do
+    {
+    std::cin >> n;
+    if (p * n < 0)
+    {
+        k++;
+    }
+    p = n;
+    }
+    while (n != 0);
+    std::cout << "The Sign in the your Sequence was changed: " << k << " times.";
+}
+int main()
+{
+    bool sign;
+    do 
+    {
+        sequence();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> sign;
+        std::cout << "\n";
+    }
+    while (sign);
+    return 0;
+}
