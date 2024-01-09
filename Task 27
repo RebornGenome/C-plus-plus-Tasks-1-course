@@ -1,0 +1,79 @@
+#include <iostream>
+#include <limits>
+
+
+void fraction()
+{
+    int f, n, frac, f1, n1;
+    std::cout << "This the program showing Abbreviated Fraction.";
+    std::cout << "\nEnter the the Numerator of the fraction: ";
+    std::cin >> f;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+    std::cout << "Enter the Denominator of the fraction: ";
+    std::cin >> n;
+    if (std::cin.fail())
+{
+    std::cout << "Error !!! Enter please number!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return;
+}
+if (f <= 0 || n <= 0)
+{
+    std::cout << "You entered the wrong number. The numerator and denominator of the fraction be positive and non-zero!";
+    return;
+}
+if (f > n)
+{
+    frac = n;
+}
+else
+{
+    frac = f;
+}
+for (int i = frac; i > 0; i--)
+{
+    if (f % i == 0 && n % i == 0)
+    {
+        if (f == n)
+        {
+            std::cout << "The your Fraction: " << f << "/" << n << " -> is equal: 1";
+            return;
+        }
+        else if (n == 1)
+        {
+            std::cout << "The your Fraction: " << f << "/" << n << " -> is equal: " << f;
+            return;
+        }
+        else
+        {
+        f1 = f / i;
+        n1 = n / i;
+        std::cout << "The your Fraction: " << f << "/" << n << " -> the Abbreviated Fraction: " << f1 << "/" << n1;
+        break;
+        }
+    }
+}
+}
+int main()
+{
+    bool abbreviated;
+    do 
+    {
+        fraction();
+        std::cout << "\n";
+        std::cout << "\nDo you want to repeat ? (yes - 1 , no - 0): ";
+        std::cin >> abbreviated;
+        std::cout << "\n";
+    }
+    while (abbreviated);
+    return 0;
+}
+
+
